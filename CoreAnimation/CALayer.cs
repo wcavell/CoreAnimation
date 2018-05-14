@@ -12,7 +12,7 @@ using Microsoft.Graphics.Canvas.Geometry;
 
 namespace CoreAnimation
 { 
-    public abstract class CALayer
+    public abstract class CALayer:DependencyObject
     {
         internal void SetDrawer(CanvasDrawingSession draw)
         {
