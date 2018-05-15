@@ -9,6 +9,6 @@ namespace CoreAnimation
     enum DrawType
     {
         Fill,
-        Draw
+        Draw 
     }
 }
