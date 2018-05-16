@@ -46,5 +46,10 @@ namespace CoreAnimation
                 Layers.RemoveAt(index);
             }
         }
+
+        public void AddAnimation(CAAnimation animation)
+        {
+            
+        }
     }
 }

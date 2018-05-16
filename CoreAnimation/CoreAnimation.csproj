@@ -107,6 +107,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CAAnimation.cs" />
+    <Compile Include="CAKeyframeAnimation.cs" />
     <Compile Include="CALayerCollection.cs" />
     <Compile Include="DrawType.cs" />
     <Compile Include="LayerManager.cs" />
