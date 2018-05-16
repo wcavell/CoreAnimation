@@ -12,6 +12,6 @@ namespace CoreAnimation
         public float From { get; set; }
         public float To { get; set; }
         public float Duration { get; set; }
-
+        //public abstract float UpdatePosition(float elapsed, float from, float change, float duration);
     }
 }

@@ -113,6 +113,7 @@
     <Compile Include="DrawType.cs" />
     <Compile Include="LayerManager.cs" />
     <Compile Include="Path.cs" />
+    <Compile Include="Tweens\ITweener.cs" />
     <Compile Include="UIBezierPath.cs" />
     <Compile Include="CALayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,9 +127,7 @@
       <Version>1.20.0</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tweens\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
