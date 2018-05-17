@@ -57,13 +57,14 @@ namespace CoreAnimation
                 Id++;
                 if(state.Status==AsyncStatus.Canceled)
                     break;
+                Timer.Tick();
                 if (IsPause)
                 {
                     await Task.Delay(250);
                 }
                 else
                 {
-                    
+                    Update();
                 }
             }
             IsRuning = false;
@@ -80,6 +81,11 @@ namespace CoreAnimation
                     break;
                 }
             }
+        }
+
+        private static  void Update()
+        {
+
         }
     }
     
