@@ -19,7 +19,7 @@ namespace CoreAnimation
         {
             Drawer = draw;
         }
-        protected CanvasDrawingSession Drawer;
+        protected CanvasDrawingSession Drawer; 
         public List<CALayer> Layers { get; set; } = new List<CALayer>();
         public virtual void Draw()
         {
