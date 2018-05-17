@@ -113,6 +113,7 @@
     <Compile Include="DrawType.cs" />
     <Compile Include="LayerManager.cs" />
     <Compile Include="Path.cs" />
+    <Compile Include="TimerTick.cs" />
     <Compile Include="Tweens\ITweener.cs" />
     <Compile Include="UIBezierPath.cs" />
     <Compile Include="CALayer.cs" />
