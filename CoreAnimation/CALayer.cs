@@ -20,36 +20,56 @@ namespace CoreAnimation
             Drawer = draw;
         }
         protected CanvasDrawingSession Drawer; 
-        public List<CALayer> Layers { get; set; } = new List<CALayer>();
-        public virtual void Draw()
+        public List<CALayer> Childs { get; set; } = new List<CALayer>();
+        protected List<CAAnimation> Animations { get; set; } = new List<CAAnimation>();
+
+        public void UpdateAnimation(TimerTick tick)
         {
-            
+            foreach (var animation in Animations)
+            {
+                animation.Update(tick);
+            }
+            //foreach (var layer in Childs)
+            //{
+            //    layer.UpdateAnimation(tick);
+            //}
+        }
+
+        public virtual void Draw(TimerTick tick)
+        {
+            foreach (var layer in Childs)
+            {
+                layer.SetDrawer(Drawer);
+                layer.UpdateAnimation(tick);
+                layer.Draw(tick);
+            }
         }
 
         public void AddSubLayer(CALayer layer)
         {
-            Layers.Add(layer);
+            Childs.Add(layer);
         }
 
         public void InsertSubLayer(CALayer layer,int index)
         {
-            Layers.Insert(index,layer);
+            Childs.Insert(index,layer);
         }
         public void RemoveLayer(CALayer layer)
         {
-            Layers.Remove(layer);
+            Childs.Remove(layer);
         }
 
         public void RemoveLayer(int index)
         {
-            if (Layers.Count > index)
+            if (Childs.Count > index)
             {
-                Layers.RemoveAt(index);
+                Childs.RemoveAt(index);
             }
         }
 
         public void AddAnimation(CAAnimation animation)
         {
+            Animations.Add(animation);
             animation.PropertyChanged -= OnPropertyChanged;
             animation.PropertyChanged += OnPropertyChanged; 
         }
