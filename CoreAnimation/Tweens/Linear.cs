@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CoreAnimation.Tweens
+{
+    public static class Linear
+    {
+        public static float EaseNone(float t, float b, float c, float d)
+        {
+            return c * t / d + b;
+        }
+
+        public static float EaseIn(float t, float b, float c, float d)
+        {
+            return c * t / d + b;
+        }
+
+        public static float EaseOut(float t, float b, float c, float d)
+        {
+            return c * t / d + b;
+        }
+
+        public static float EaseInOut(float t, float b, float c, float d)
+        {
+            return c * t / d + b;
+        }
+    }
+}

@@ -14,7 +14,7 @@ namespace CoreAnimation.Tweens
         bool Playing { get; }
         event EndHandler Ended;
 
-        void Update(float gameTime);  
+        void Update(TimerTick gameTime);  
         void Play();
         void Pause();
         void Reset();

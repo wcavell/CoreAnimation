@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,7 +50,22 @@ namespace CoreAnimation
 
         public void AddAnimation(CAAnimation animation)
         {
+            animation.PropertyChanged -= OnPropertyChanged;
+            animation.PropertyChanged += OnPropertyChanged; 
+        }
+
+        protected virtual void OnPropertyChanged(object sender,  PropertyChangedEventArgs e)
+        {
             
+        }
+
+        protected float GetPosition(object obj)
+        {
+            if (obj is CAAnimation anim)
+            {
+                return anim.Position;
+            }
+            return 0;
         }
     }
 }
