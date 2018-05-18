@@ -151,6 +151,7 @@ namespace CoreAnimation.Tweens
             }
         }
 
+        public bool IsCompleted { get; private set; } = false;
         /// <summary>
         /// This is the positon where the tweener started.
         /// </summary>
@@ -232,6 +233,7 @@ namespace CoreAnimation.Tweens
                 elapsed = duration;
                 Position = CalculateEndPosition();
                 Ended?.Invoke();
+                IsCompleted = true;
             }
             else
             {
@@ -299,6 +301,7 @@ namespace CoreAnimation.Tweens
         {
             elapsed = 0.0f;
             Position = from;
+            IsCompleted = false;
         }
 
         /// <summary>
@@ -311,6 +314,7 @@ namespace CoreAnimation.Tweens
             change = CalculateChange(to, Position);
             from = Position;
             elapsed = 0.0f;
+            IsCompleted = false;
         }
 
         /// <summary>
@@ -376,6 +380,7 @@ namespace CoreAnimation.Tweens
         /// </summary>
         public void Reverse()
         {
+            IsCompleted = false;
             elapsed = 0.0f;
             change = CalculateChange(from, Position);
             from = Position;

@@ -22,6 +22,20 @@ namespace CoreAnimation
         protected CanvasDrawingSession Drawer; 
         public List<CALayer> Childs { get; set; } = new List<CALayer>();
         protected List<CAAnimation> Animations { get; set; } = new List<CAAnimation>();
+        private bool mNeedDraw = true;
+
+        public bool NeedDraw
+        {
+            get
+            {
+                if (!mNeedDraw)
+                {
+                    
+                }
+                return mNeedDraw;
+            }
+            protected set { mNeedDraw = value; }
+        }
 
         public void UpdateAnimation(TimerTick tick)
         {
@@ -69,6 +83,7 @@ namespace CoreAnimation
 
         public void AddAnimation(CAAnimation animation)
         {
+            NeedDraw = true;
             Animations.Add(animation);
             animation.PropertyChanged -= OnPropertyChanged;
             animation.PropertyChanged += OnPropertyChanged; 

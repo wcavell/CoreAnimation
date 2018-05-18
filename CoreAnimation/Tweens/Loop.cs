@@ -22,7 +22,7 @@ namespace CoreAnimation.Tweens
 
         public static void BackAndForth(ITweener tweener)
         {
-            tweener.Ended += delegate { tweener.Reverse(); };
+            tweener.Ended += tweener.Reverse;
         }
 
         public static void BackAndForth(ITweener tweener, int times)
