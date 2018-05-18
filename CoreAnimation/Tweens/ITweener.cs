@@ -8,12 +8,13 @@ namespace CoreAnimation.Tweens
 {
     public delegate void PositionChangedHandler<T>(T newPosition);
     public delegate void EndHandler();
+    public delegate void EndExHandler(ITweener tweener);
 
     public interface ITweener
     { 
         bool Playing { get; }
         event EndHandler Ended;
-
+        event EndExHandler Completed;
         void Update(TimerTick gameTime);  
         void Play();
         void Pause();

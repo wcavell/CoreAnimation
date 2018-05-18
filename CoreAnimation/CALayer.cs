@@ -8,6 +8,7 @@ using Windows.Foundation.Metadata;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
+using CoreAnimation.Tweens;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Geometry;
 
@@ -30,7 +31,10 @@ namespace CoreAnimation
             {
                 if (!mNeedDraw)
                 {
-                    
+                    //foreach (var layer in Childs)
+                    //{
+                        
+                    //}
                 }
                 return mNeedDraw;
             }
@@ -86,12 +90,14 @@ namespace CoreAnimation
             NeedDraw = true;
             Animations.Add(animation);
             animation.PropertyChanged -= OnPropertyChanged;
-            animation.PropertyChanged += OnPropertyChanged; 
+            animation.PropertyChanged += OnPropertyChanged;
+            animation.Completed -= OnAnimationCompleted;
+            animation.Completed += OnAnimationCompleted;
         }
 
         protected virtual void OnPropertyChanged(object sender,  PropertyChangedEventArgs e)
         {
-            
+           
         }
 
         protected float GetPosition(object obj)
@@ -101,6 +107,11 @@ namespace CoreAnimation
                 return anim.Position;
             }
             return 0;
+        }
+
+        private void OnAnimationCompleted(ITweener tweener)
+        {
+
         }
     }
 }

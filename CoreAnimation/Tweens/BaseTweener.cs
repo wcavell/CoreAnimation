@@ -213,6 +213,8 @@ namespace CoreAnimation.Tweens
         /// to be at the ending position no matter how many times it was stopped and started.
         /// </summary>
         public event EndHandler Ended;
+
+        public event EndExHandler Completed;
         #endregion
 
         #region Methods
@@ -232,8 +234,9 @@ namespace CoreAnimation.Tweens
             {
                 elapsed = duration;
                 Position = CalculateEndPosition();
-                Ended?.Invoke();
                 IsCompleted = true;
+                Ended?.Invoke();
+                Completed?.Invoke(this);
             }
             else
             {
