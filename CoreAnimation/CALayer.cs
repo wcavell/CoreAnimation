@@ -22,7 +22,7 @@ namespace CoreAnimation
         }
         protected CanvasDrawingSession Drawer; 
         public List<CALayer> Childs { get; set; } = new List<CALayer>();
-        protected List<CAAnimation> Animations { get; set; } = new List<CAAnimation>();
+        protected Dictionary<string,CAAnimation> Animations { get; set; } = new Dictionary<string, CAAnimation>();
         private bool mNeedDraw = true;
 
         public bool NeedDraw
@@ -45,7 +45,7 @@ namespace CoreAnimation
         {
             foreach (var animation in Animations)
             {
-                animation.Update(tick);
+                animation.Value.Update(tick);
             }
             //foreach (var layer in Childs)
             //{
@@ -88,7 +88,8 @@ namespace CoreAnimation
         public void AddAnimation(CAAnimation animation)
         {
             NeedDraw = true;
-            Animations.Add(animation);
+            Animations[animation.ForKey] = animation;
+            //Animations.Add(animation);
             animation.PropertyChanged -= OnPropertyChanged;
             animation.PropertyChanged += OnPropertyChanged;
             animation.Completed -= OnAnimationCompleted;
