@@ -20,8 +20,8 @@ namespace CoreAnimation
         {
             Drawer = draw;
         }
-        protected CanvasDrawingSession Drawer; 
-        public List<CALayer> Childs { get; set; } = new List<CALayer>();
+        protected CanvasDrawingSession Drawer;
+        public List<CALayer> Childs { get; protected set; } = new List<CALayer>();
         protected Dictionary<string,CAAnimation> Animations { get; set; } = new Dictionary<string, CAAnimation>();
         private bool mNeedDraw = true;
 
@@ -33,7 +33,7 @@ namespace CoreAnimation
                 {
                     //foreach (var layer in Childs)
                     //{
-                        
+                    //    layer.NeedDraw
                     //}
                 }
                 return mNeedDraw;
@@ -89,19 +89,43 @@ namespace CoreAnimation
         {
             NeedDraw = true;
             Animations[animation.ForKey] = animation;
-            //Animations.Add(animation);
             animation.PropertyChanged -= OnPropertyChanged;
             animation.PropertyChanged += OnPropertyChanged;
             animation.Completed -= OnAnimationCompleted;
             animation.Completed += OnAnimationCompleted;
         }
 
-        protected virtual void OnPropertyChanged(object sender,  PropertyChangedEventArgs e)
+        public void RemoveAnimation(CAAnimation animation)
         {
-           
+            animation.PropertyChanged -= OnPropertyChanged;
+            animation.Completed -= OnAnimationCompleted;
+            Animations.Remove(animation.ForKey);
         }
 
-        protected float GetPosition(object obj)
+        public void RemoveAllAnimations()
+        {
+            foreach (var an in Animations)
+            {
+                an.Value.PropertyChanged -= OnPropertyChanged;
+                an.Value.Completed -= OnAnimationCompleted;
+                Animations.Remove(an.Key);
+            }
+        }
+        protected virtual void OnChanged(float position, string propertyName)
+        {
+            
+        }
+
+        protected virtual void OnCompleted(CAAnimation animation,bool finished)
+        {
+
+        }
+        void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            OnChanged(GetPosition(sender), e.PropertyName);
+        }
+
+        float GetPosition(object obj)
         {
             if (obj is CAAnimation anim)
             {
@@ -112,7 +136,12 @@ namespace CoreAnimation
 
         private void OnAnimationCompleted(ITweener tweener)
         {
-
+            if (tweener.IsCompleted)
+            {
+                CAAnimation am = (CAAnimation) tweener;
+                OnCompleted(am, true);
+                Animations.Remove(am.ForKey);
+            }
         }
     }
 }

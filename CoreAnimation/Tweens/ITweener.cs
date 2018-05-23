@@ -11,7 +11,8 @@ namespace CoreAnimation.Tweens
     public delegate void EndExHandler(ITweener tweener);
 
     public interface ITweener
-    { 
+    {
+        bool IsCompleted { get; }
         bool Playing { get; }
         event EndHandler Ended;
         event EndExHandler Completed;
