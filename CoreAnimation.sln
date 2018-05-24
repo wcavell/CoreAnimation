@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreAnimation", "CoreAnimation\CoreAnimation.csproj", "{B2E7B397-E2F5-4D22-8266-0B14A812441D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,26 @@ Global
 		{B2E7B397-E2F5-4D22-8266-0B14A812441D}.Release|x64.Build.0 = Release|x64
 		{B2E7B397-E2F5-4D22-8266-0B14A812441D}.Release|x86.ActiveCfg = Release|x86
 		{B2E7B397-E2F5-4D22-8266-0B14A812441D}.Release|x86.Build.0 = Release|x86
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Debug|ARM.ActiveCfg = Debug|ARM
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Debug|ARM.Build.0 = Debug|ARM
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Debug|ARM.Deploy.0 = Debug|ARM
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Debug|x64.ActiveCfg = Debug|x64
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Debug|x64.Build.0 = Debug|x64
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Debug|x64.Deploy.0 = Debug|x64
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Debug|x86.ActiveCfg = Debug|x86
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Debug|x86.Build.0 = Debug|x86
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Debug|x86.Deploy.0 = Debug|x86
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Release|Any CPU.ActiveCfg = Release|x86
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Release|ARM.ActiveCfg = Release|ARM
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Release|ARM.Build.0 = Release|ARM
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Release|ARM.Deploy.0 = Release|ARM
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Release|x64.ActiveCfg = Release|x64
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Release|x64.Build.0 = Release|x64
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Release|x64.Deploy.0 = Release|x64
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Release|x86.ActiveCfg = Release|x86
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Release|x86.Build.0 = Release|x86
+		{9C70ABDE-DD14-442D-80F8-A8C1B181F59B}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
