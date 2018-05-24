@@ -110,6 +110,7 @@
     <Compile Include="CAAnimation.cs" />
     <Compile Include="CAKeyframeAnimation.cs" />
     <Compile Include="CALayerCollection.cs" />
+    <Compile Include="Controls\SlideAnimationManager.cs" />
     <Compile Include="Controls\SlideLayer.cs" />
     <Compile Include="DrawType.cs" />
     <Compile Include="LayerManager.cs" />

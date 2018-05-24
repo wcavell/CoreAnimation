@@ -56,6 +56,18 @@ namespace CoreAnimation
             //}
         }
 
+        public void UnLoaded()
+        {
+            foreach (var child in Childs)
+            {
+                child.UnLoaded();
+            }
+
+            foreach (var an in Animations)
+            {
+                AnimationDidStop?.Invoke(an.Value, false);
+            }
+        }
         public virtual void Draw(TimerTick tick)
         {
             foreach (var layer in Childs)
