@@ -13,18 +13,21 @@ using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Geometry;
 
 namespace CoreAnimation
-{ 
+{
+    public delegate void AnimationDidStop(CAAnimation animation, bool flag);
     public abstract class CALayer:DependencyObject
     {
         internal void SetDrawer(CanvasDrawingSession draw)
         {
             Drawer = draw;
         }
+
+        public event AnimationDidStop AnimationDidStop;
         protected CanvasDrawingSession Drawer;
         public List<CALayer> Childs { get; protected set; } = new List<CALayer>();
         protected Dictionary<string,CAAnimation> Animations { get; set; } = new Dictionary<string, CAAnimation>();
         private bool mNeedDraw = true;
-
+        
         public bool NeedDraw
         {
             get
@@ -139,6 +142,7 @@ namespace CoreAnimation
             if (tweener.IsCompleted)
             {
                 CAAnimation am = (CAAnimation) tweener;
+                AnimationDidStop?.Invoke(am,true);
                 OnCompleted(am, true);
                 Animations.Remove(am.ForKey);
             }

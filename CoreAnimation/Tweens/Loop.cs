@@ -11,23 +11,27 @@ namespace CoreAnimation.Tweens
         #region Static methods
         public static void FrontToBack(ITweener tweener)
         {
+            tweener.Ended -= tweener.Restart;
             tweener.Ended += tweener.Restart;
         }
 
         public static void FrontToBack(ITweener tweener, int times)
         {
             TimesLoopingHelper helper = new TimesLoopingHelper(tweener, times);
+            tweener.Ended -= helper.FrontToBack;
             tweener.Ended += helper.FrontToBack;
         }
 
         public static void BackAndForth(ITweener tweener)
         {
-            tweener.Ended += delegate { tweener.Reverse(); };
+            tweener.Ended -= tweener.Reverse;
+            tweener.Ended += tweener.Reverse;
         }
 
         public static void BackAndForth(ITweener tweener, int times)
         {
             TimesLoopingHelper helper = new TimesLoopingHelper(tweener, times);
+            tweener.Ended -= helper.BackAndForth;
             tweener.Ended += helper.BackAndForth;
         }
         #endregion

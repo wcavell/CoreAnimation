@@ -193,7 +193,22 @@ namespace CoreAnimation.Tweens
         /// <summary>
         /// This is the function that determines the actual movement of the tweener.
         /// </summary>
-        protected TweeningFunction tweeningFunction { get; }
+        protected TweeningFunction tweeningFunction { get; private set; }
+
+        private EasingFunction mEasingFunction;
+
+        public EasingFunction EasingFunction
+        {
+            get
+            {
+                return mEasingFunction;
+            }
+            set
+            {
+                mEasingFunction = value;
+                tweeningFunction = mEasingFunction.Tween;
+            }
+        }
 
         public LoopHelper Loop
         {

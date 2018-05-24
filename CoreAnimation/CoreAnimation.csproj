@@ -110,6 +110,7 @@
     <Compile Include="CAAnimation.cs" />
     <Compile Include="CAKeyframeAnimation.cs" />
     <Compile Include="CALayerCollection.cs" />
+    <Compile Include="Controls\SlideLayer.cs" />
     <Compile Include="DrawType.cs" />
     <Compile Include="LayerManager.cs" />
     <Compile Include="Path.cs" />
@@ -119,6 +120,9 @@
     <Compile Include="Tweens\Bounce.cs" />
     <Compile Include="Tweens\Circular.cs" />
     <Compile Include="Tweens\Cubic.cs" />
+    <Compile Include="Tweens\Damp.cs" />
+    <Compile Include="Tweens\EasingFunction.cs" />
+    <Compile Include="Tweens\EasingModes.cs" />
     <Compile Include="Tweens\Elastic.cs" />
     <Compile Include="Tweens\Exponential.cs" />
     <Compile Include="Tweens\ITweener.cs" />
