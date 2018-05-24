@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.System.Threading;
 
@@ -17,6 +19,26 @@ namespace CoreAnimation
         private static int _lock;
         private static IAsyncAction TaskAsync;
         public static TimerTick Timer = new TimerTick();
+
+        public static void OnLaunched(LaunchActivatedEventArgs e)
+        {
+
+        }
+
+        public static void OnSuspending(object sender, SuspendingEventArgs e)
+        {
+
+        }
+
+        public static void OnResuming(object sender, object e)
+        {
+
+        }
+
+        public static void OnExit()
+        {
+
+        }
         public static void Init()
         {
             Id = 0;

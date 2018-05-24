@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -14,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using CoreAnimation;
 
 namespace Demo
 {
@@ -30,6 +32,12 @@ namespace Demo
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            this.Resuming += OnResuming;
+        }
+
+        private void OnResuming(object sender, object e)
+        {
+            LayerManager.OnResuming(sender, e);
         }
 
         /// <summary>
@@ -40,7 +48,7 @@ namespace Demo
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-
+            LayerManager.OnLaunched(e);
             // 不要在窗口已包含内容时重复应用程序初始化，
             // 只需确保窗口处于活动状态
             if (rootFrame == null)
@@ -92,6 +100,7 @@ namespace Demo
         /// <param name="e">有关挂起请求的详细信息。</param>
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
+            LayerManager.OnSuspending(sender,e);
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: 保存应用程序状态并停止任何后台活动
             deferral.Complete();
