@@ -52,7 +52,7 @@ namespace CoreAnimation
             }
             //foreach (var layer in Childs)
             //{
-            //    layer.UpdateAnimation(tick);
+            //    layer.UpdateAnimation(tick);欧式
             //}
         }
 

@@ -38,27 +38,27 @@ namespace CoreAnimation.Controls
                     damp.Velocity = 3f;
                     animSpring.EasingFunction = damp;
                     animSpring.ForKey = ANIM_STARTSPRING;
-                    mSlideLayer.AddAnimation(animSpring); 
+                    mSlideLayer.AddAnimation(animSpring);
                     //CAKeyframeAnimation animCircle = [self createBaseAnima: @"radius" duration: .8f fromValue:@(0) toValue:@(sqrt(_circleLayer.frame.size.width * _circleLayer.frame.size.width + _circleLayer.frame.size.height * _circleLayer.frame.size.width))];
                     //[_circleLayer addAnimation:animCircle forKey:ANIM_STARTCIRCLE];
                     return;
                 }
 
-                else if (anim.ForKey == ANIM_STARTSPRING)
+                if (anim.ForKey == ANIM_STARTSPRING)
                 {
                     mSlideLayer.Distance = mSlideLayer.BackgroundWidth;
                     mSlideLayer.RemoveAllAnimations();
                     return;
                 }
 
-                else if (anim.ForKey == ANIM_STARTCIRCLE)
+                if (anim.ForKey == ANIM_STARTCIRCLE)
                 {
                     //_circleLayer.radius = sqrt(_circleLayer.frame.size.width * _circleLayer.frame.size.width + _circleLayer.frame.size.height * _circleLayer.frame.size.width);
                     //    [_circleLayer removeAllAnimations];
                     return;
                 }
 
-                else if (anim.ForKey == ANIM_ENDBASE)
+                if (anim.ForKey == ANIM_ENDBASE)
                 {
                     mSlideLayer.RemoveAllAnimations();
                     mSlideLayer.Distance = mSlideLayer.BackgroundWidth;
@@ -70,21 +70,24 @@ namespace CoreAnimation.Controls
                     damp.Velocity = 3f;
                     animSpring.EasingFunction = damp;
                     animSpring.ForKey = ANIM_ENDSPRING;
-                    mSlideLayer.AddAnimation(animSpring); 
+                    mSlideLayer.AddAnimation(animSpring);
                 }
-                else if (anim.ForKey == ANIM_ENDSPRING)
+
+                if (anim.ForKey == ANIM_ENDSPRING)
                 {
                     mSlideLayer.Distance = 0;
                     mSlideLayer.RemoveAllAnimations();
                 }
-                else if (anim.ForKey == ANIM_ENDCIRCLE)
-                {
 
+                if (anim.ForKey == ANIM_ENDCIRCLE)
+                {
+                    //_circleLayer.radius = 0;
+                    //    [_circleLayer removeAllAnimations];
                 }
             }
             else
             {
-
+                mSlideLayer.RemoveAllAnimations();
             }
         }
 
