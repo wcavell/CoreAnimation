@@ -9,12 +9,12 @@ namespace CoreAnimation.Controls
 {
     public sealed class SlideAnimationManager
     {
-        const string ANIM_STARTBASE = @"startLLSlideBaseAnimate";
-        const string ANIM_STARTSPRING = @"startLLSlideSpringAnimate";
-        const string ANIM_STARTCIRCLE = @"startLLCircleAnimate";
-        const string ANIM_ENDBASE = @"endLLSlideBaseAnimate";
-        const string ANIM_ENDSPRING = @"endLLSlideSpringAnimate"; 
-        const string ANIM_ENDCIRCLE = @"endLLCircleAnimate";
+        const string ANIM_STARTBASE = "startLLSlideBaseAnimate";
+        const string ANIM_STARTSPRING = "startLLSlideSpringAnimate";
+        const string ANIM_STARTCIRCLE = "startLLCircleAnimate";
+        const string ANIM_ENDBASE = "endLLSlideBaseAnimate";
+        const string ANIM_ENDSPRING = "endLLSlideSpringAnimate"; 
+        const string ANIM_ENDCIRCLE = "endLLCircleAnimate";
         private SlideLayer mSlideLayer;
         public void Init(SlideLayer slideLayer)
         {
@@ -31,8 +31,8 @@ namespace CoreAnimation.Controls
                 {
                     mSlideLayer.RemoveAllAnimations();
                     mSlideLayer.IsAnimating = true;
-                    CAKeyframeAnimation animSpring =
-                        new CAKeyframeAnimation("distance", 0, mSlideLayer.BackgroundWidth, 2f);
+                    CAKeyFrameAnimation animSpring =
+                        new CAKeyFrameAnimation("distance", 0, mSlideLayer.BackgroundWidth, 2f);
                     Damp damp = new Damp();
                     damp.Damping = 0.5f;
                     damp.Velocity = 3f;
@@ -63,8 +63,8 @@ namespace CoreAnimation.Controls
                     mSlideLayer.RemoveAllAnimations();
                     mSlideLayer.Distance = mSlideLayer.BackgroundWidth;
                     mSlideLayer.IsAnimating = false;
-                    CAKeyframeAnimation animSpring =
-                        new CAKeyframeAnimation("distance", mSlideLayer.BackgroundWidth, 0, 2f);
+                    CAKeyFrameAnimation animSpring =
+                        new CAKeyFrameAnimation("distance", mSlideLayer.BackgroundWidth, 0, 2f);
                     Damp damp = new Damp();
                     damp.Damping = 0.5f;
                     damp.Velocity = 3f;
@@ -87,6 +87,7 @@ namespace CoreAnimation.Controls
             }
             else
             {
+                mSlideLayer.Distance = 0;
                 mSlideLayer.RemoveAllAnimations();
             }
         }
@@ -96,7 +97,7 @@ namespace CoreAnimation.Controls
             if (mSlideLayer.Distance >= mSlideLayer.BackgroundWidth)
             {
                 mSlideLayer.IsAnimating = true;
-                CAAnimation animation = new CAKeyframeAnimation("distance", 0, mSlideLayer.BackgroundWidth, 2f);
+                CAAnimation animation = new CAKeyFrameAnimation("distance", 0, mSlideLayer.BackgroundWidth, 2f);
                 Damp damp = new Damp();
                 damp.Damping = 0.5f;
                 damp.Velocity = 3f;
@@ -107,7 +108,7 @@ namespace CoreAnimation.Controls
             else
             {
                 mSlideLayer.IsAnimating = false;
-                CAAnimation animation = new CAKeyframeAnimation("distance", mSlideLayer.Distance, mSlideLayer.BackgroundWidth, 0.2f);
+                CAAnimation animation = new CAKeyFrameAnimation("distance", mSlideLayer.Distance, mSlideLayer.BackgroundWidth, 0.2f);
                 animation.ForKey = ANIM_STARTBASE;
                 mSlideLayer.AddAnimation(animation);
                 mSlideLayer.Distance = mSlideLayer.BackgroundWidth;
@@ -119,7 +120,7 @@ namespace CoreAnimation.Controls
             if (mSlideLayer.Distance >= mSlideLayer.BackgroundWidth)
             {
                 // 关闭背景layer
-                CAKeyframeAnimation animBase = new CAKeyframeAnimation("distance", mSlideLayer.BackgroundWidth,0, 0.3f);
+                CAKeyFrameAnimation animBase = new CAKeyFrameAnimation("distance", mSlideLayer.BackgroundWidth,0, 0.3f);
                 animBase.ForKey = ANIM_ENDBASE;
                 mSlideLayer.AddAnimation(animBase);
                 // 关闭contentView
@@ -129,7 +130,7 @@ namespace CoreAnimation.Controls
             else
             {
                 mSlideLayer.IsAnimating = false;
-                CAKeyframeAnimation animSpring = new CAKeyframeAnimation("distance", mSlideLayer.Distance, 0, 1.5f);
+                CAKeyFrameAnimation animSpring = new CAKeyFrameAnimation("distance", mSlideLayer.Distance, 0, 1.5f);
                 Damp damp = new Damp();
                 damp.Damping = 0.5f;
                 damp.Velocity = 3f;

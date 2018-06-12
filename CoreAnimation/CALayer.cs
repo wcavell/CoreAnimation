@@ -124,7 +124,6 @@ namespace CoreAnimation
                 an.Value.PropertyChanged -= OnPropertyChanged;
                 an.Value.Completed -= OnAnimationCompleted;
                 Animations.Remove(an.Key);
-                 
             }
         }
         protected virtual void OnChanged(float position, string propertyName)
@@ -134,7 +133,7 @@ namespace CoreAnimation
 
         protected virtual void OnCompleted(CAAnimation animation,bool finished)
         {
-
+            
         }
         void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {

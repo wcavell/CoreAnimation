@@ -7,7 +7,7 @@ using CoreAnimation.Tweens;
 
 namespace CoreAnimation
 {
-    public class CAKeyframeAnimation:CAAnimation
+    public class CAKeyFrameAnimation:CAAnimation
     {
         protected override void UpdatePosition(float elapsed, float @from, float change, float duration)
         {
@@ -29,27 +29,27 @@ namespace CoreAnimation
             return change / speed;
         }
 
-        public CAKeyframeAnimation(string propertyName, float @from, float to, float duration, TweeningFunction tweeningFunction) : base(propertyName, @from, to, duration, tweeningFunction)
+        public CAKeyFrameAnimation(string propertyName, float @from, float to, float duration, TweeningFunction tweeningFunction) : base(propertyName, @from, to, duration, tweeningFunction)
         {
         }
 
-        public CAKeyframeAnimation(string propertyName, float @from, float to, float duration) : base(propertyName, @from, to, duration)
+        public CAKeyFrameAnimation(string propertyName, float @from, float to, float duration) : base(propertyName, @from, to, duration)
         {
         }
 
-        public CAKeyframeAnimation(string propertyName, float @from, float to, TimeSpan duration, TweeningFunction tweeningFunction) : base(propertyName, @from, to, duration, tweeningFunction)
+        public CAKeyFrameAnimation(string propertyName, float @from, float to, TimeSpan duration, TweeningFunction tweeningFunction) : base(propertyName, @from, to, duration, tweeningFunction)
         {
         }
 
-        public CAKeyframeAnimation(string propertyName, float @from, float to, TimeSpan duration) : base(propertyName, @from, to, duration)
+        public CAKeyFrameAnimation(string propertyName, float @from, float to, TimeSpan duration) : base(propertyName, @from, to, duration)
         {
         }
 
-        public CAKeyframeAnimation(TweeningFunction tweeningFunction) : base(tweeningFunction)
+        public CAKeyFrameAnimation(TweeningFunction tweeningFunction) : base(tweeningFunction)
         {
         }
 
-        public CAKeyframeAnimation(string propertyName, float @from, float to, TweeningFunction tweeningFunction, float speed) : base(propertyName, @from, to, tweeningFunction, speed)
+        public CAKeyFrameAnimation(string propertyName, float @from, float to, TweeningFunction tweeningFunction, float speed) : base(propertyName, @from, to, tweeningFunction, speed)
         {
         }
     }

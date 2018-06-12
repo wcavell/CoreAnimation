@@ -56,19 +56,5 @@ namespace CoreAnimation.Controls
                     break;
             }
         }
-        public float Damping { get; set; }
-        public float Velocity { get; set; }
-        private const float DampingFactor = 20.0f;
-        private const float VelocityFactor = 15.0f;
-        public float SpringTween(float timeElapsed, float start, float change, float duration)
-        {
-           var damping = Damping;
-            var velocity = Velocity; 
-            damping = damping * DampingFactor;
-            velocity = velocity * VelocityFactor;
-            double pg = timeElapsed / duration;
-            return (start + change) - change * (float)Math.Pow(Math.E, -damping* pg) *
-                   (float)Math.Cos(velocity * pg);
-        }
     }
 }

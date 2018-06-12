@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CoreAnimation.Tweens
 {
+    /// <summary>
+    /// 弹性
+    /// </summary>
     public class Damp:EasingFunction
     {
         public float Damping { get; set; }
@@ -14,13 +17,11 @@ namespace CoreAnimation.Tweens
         private const float VelocityFactor = 15.0f;
         public override float Tween(float timeElapsed, float start, float change, float duration)
         {
-            var damping = Damping;
-            var velocity = Velocity;
-            damping = damping * DampingFactor;
-            velocity = velocity * VelocityFactor;
-            double pg = timeElapsed / duration;
-            return (start + change) - change * (float)Math.Pow(Math.E, -damping * pg) *
-                   (float)Math.Cos(velocity * pg);
+            var damping = Damping * DampingFactor;
+            var velocity = Velocity * VelocityFactor;  
+            float timeRadio = timeElapsed / duration;
+            return (start + change) - change * (float)Math.Pow(Math.E, -damping * timeRadio) *
+                   (float)Math.Cos(velocity * timeRadio);
         }
     }
 }
